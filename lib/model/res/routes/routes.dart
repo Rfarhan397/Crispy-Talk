@@ -11,6 +11,7 @@ import 'package:get/get.dart';
 
 import '../../../screens/chat/EditGroup/EditGroupScreen.dart';
 import '../../../screens/chat/chatListScreen.dart';
+import '../../../screens/chat/chatScreen.dart';
 import '../../../screens/login/NewPasswordScreen.dart';
 import '../../../screens/login/loginScreen.dart';
 import '../../../screens/login/signUpScreen.dart';
@@ -42,7 +43,8 @@ class Routes {
     GetPage(name: RoutesName.notificationSettingScreen, page: () => SettingNotificationScreen()),
     GetPage(name: RoutesName.privacyScreen, page: () => PrivacyScreen()),
     GetPage(name: RoutesName.termAndConditions, page: () => TermAndConditions()),
-    GetPage(name: RoutesName.chatScreen, page: () => ChatListScreen()),
+    GetPage(name: RoutesName.chatListScreen, page: () => ChatListScreen()),
+    GetPage(name: RoutesName.chatScreen, page: () => ChatScreen()),
     GetPage(name: RoutesName.createGroup, page: () => CreateGroup()),
     GetPage(name: RoutesName.editGroup, page: () => EditGroupScreen()),
 

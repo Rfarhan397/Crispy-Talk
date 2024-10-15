@@ -1,4 +1,5 @@
 class UserModel {
+  final String id;
   final String? username;
   final String? nickname;
   final String? imageUrl;
@@ -7,7 +8,8 @@ class UserModel {
   bool isFollowing;
   bool isChecked;
 
-  UserModel( {
+  UserModel(  {
+    required this.id,
     this.message,
      this.username,
      this.nickname,

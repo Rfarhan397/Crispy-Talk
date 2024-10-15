@@ -26,7 +26,19 @@ class CreateGroup extends StatelessWidget {
 
     return Scaffold(
       floatingActionButton: FloatingActionButton(onPressed: () {
-        Get.toNamed(RoutesName.editGroup);
+        if (provider.selectedUsers.isEmpty) {
+          Get.snackbar(
+            'Error',
+            'Please select at least one user to create a group',
+            backgroundColor: primaryColor,
+            colorText: Colors.white,
+          );
+        } else {
+          Get.toNamed(
+            RoutesName.editGroup,
+            arguments: provider.selectedUsers,
+          );
+        }
       },
         backgroundColor: Colors.transparent,
         splashColor: Colors.transparent,
@@ -112,7 +124,6 @@ class CreateGroup extends StatelessWidget {
                 itemBuilder: (context, index) {
                   log('Hello ::${provider.chatUsers.toString()}');
                   UserModel user = provider.chatUsers[index];
-                  bool isChecked = false;
 
                   return Padding(
                     padding: const EdgeInsets.symmetric(vertical: 4.0),
@@ -154,7 +165,7 @@ class CreateGroup extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           const AppTextWidget(
-                            text: '01:23 PM', // Placeholder for time
+                            text: '01:33 PM', // Placeholder for time
                             fontSize: 10,
                             textAlign: TextAlign.start,
                           ),

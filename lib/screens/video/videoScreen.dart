@@ -93,8 +93,8 @@ class VideoScreen extends StatelessWidget {
                     children: [
                       SvgPicture.asset(
                         Provider.of<ActionProvider>(context).isLike?
-                        AppIcons.notLike:
-                        AppIcons.like,
+                        AppIcons.like:
+                        AppIcons.notLike,
                         height: 22,
                       ),
                       const AppTextWidget(text: '4.1K', color: Colors.white),

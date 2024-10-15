@@ -15,7 +15,8 @@ class AppTextField extends StatelessWidget {
   final FocusNode? focusNode;
   final bool borderSides;
   final double? radius;
-  final Color? focusBdColor;
+  final Color? focusBdColor,focusColor,fillColor,hintColor,bdColor;
+  final Color? enableBorderColor;
   final TextInputType? keyboardType;
   final List<TextInputFormatter>? inputFormatters;
 final bool obscureText;
@@ -34,6 +35,11 @@ final bool obscureText;
     this.suffixIcon,
     this.prefixIcon, this.focusBdColor,
     this.onChanged,
+    this.focusColor,
+    this.fillColor,
+    this.hintColor,
+    this.bdColor,
+     this.enableBorderColor,
   });
 
   @override
@@ -59,7 +65,7 @@ final bool obscureText;
         filled: true,
 
         border: OutlineInputBorder(
-          borderSide: const BorderSide(color: Colors.transparent, width: 2),
+          borderSide:  BorderSide(color: bdColor ?? Colors.transparent, width: 2),
           borderRadius: BorderRadius.circular(radius ?? 20),
         ),
         disabledBorder: OutlineInputBorder(
@@ -68,7 +74,7 @@ final bool obscureText;
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(radius ?? 20),
-          borderSide:  BorderSide(color:focusBdColor?? primaryColor),
+          borderSide:  BorderSide(color:focusBdColor ?? primaryColor),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(radius ?? 20),
@@ -76,11 +82,11 @@ final bool obscureText;
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(radius ?? 20),
-          borderSide:  BorderSide(color: isDarkMode ? Colors.white : Colors.transparent),
+          borderSide:  BorderSide(color: enableBorderColor ?? Colors.transparent),
         ),
-        fillColor:  Color(0xffD9D9D9) ,
-        focusColor: Color(0xffD9D9D9),
-        hintStyle: const TextStyle(fontSize: 14.0, color: Colors.grey),
+        fillColor:  fillColor ?? Color(0xffD9D9D9) ,
+        focusColor: focusColor ?? Color(0xffD9D9D9),
+        hintStyle:  TextStyle(fontSize: 14.0, color: hintColor ??Colors.grey),
       ),
     );
   }

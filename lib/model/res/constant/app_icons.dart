@@ -21,5 +21,12 @@ class AppIcons{
   static const saveP  = "assets/icons/saveP.svg";
   static const close  = "assets/icons/close.svg";
   static const next  = "assets/icons/next.svg";
+  static const camera  = "assets/icons/camera.svg";
+  static const call  = "assets/icons/call.svg";
+  static const videoCall  = "assets/icons/videoCall.svg";
+  static const more  = "assets/icons/more.svg";
+  static const link  = "assets/icons/link.svg";
+  static const editProfile  = "assets/icons/editProfile.svg";
+  static const shareProfile  = "assets/icons/shareProfile.svg";
 
 }

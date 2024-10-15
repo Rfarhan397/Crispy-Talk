@@ -9,6 +9,7 @@ import 'package:provider/provider.dart';
 import '../../model/res/components/customNavBar.dart';
 import '../../model/res/constant/app_icons.dart';
 import '../../provider/bottomNavBar/bottomNavBarProvider.dart';
+import '../video/userProfile.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
@@ -24,7 +25,7 @@ class MainScreen extends StatelessWidget {
              const HomeScreen(),
              const HomeScreen(),
              ChatListScreen(),
-             const HomeScreen(),
+             const UserProfile(),
             ],
           );
         },),

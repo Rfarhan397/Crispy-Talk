@@ -106,12 +106,16 @@ class ChatListScreen extends StatelessWidget {
                   return Padding(
                     padding: const EdgeInsets.symmetric(vertical: 4.0),
                     child: ListTile(
+                      splashColor: Color(0xffFEE3C8),
+                      onTap: () {
+                        Get.toNamed(RoutesName.chatScreen,arguments: user);
+                      },
                       leading: Stack(
                         clipBehavior: Clip.hardEdge,
                         children: [
                           CircleAvatar(
                             radius: 25,
-                            backgroundImage: AssetImage(user.imageUrl.toString()), // User's profile image
+                            backgroundImage: AssetImage(user.imageUrl.toString()),
                           ),
                           Positioned(
                             bottom: 2,
@@ -120,7 +124,7 @@ class ChatListScreen extends StatelessWidget {
                               width: 12,
                               height: 12,
                               decoration: const BoxDecoration(
-                                color: Colors.green, // Online indicator
+                                color: Colors.green,
                                 shape: BoxShape.circle,
                               ),
                             ),
@@ -128,13 +132,13 @@ class ChatListScreen extends StatelessWidget {
                         ],
                       ),
                       title: AppTextWidget(
-                        text: user.username.toString(), // Display user name
+                        text: user.username.toString(),
                         fontSize: 16,
                         textAlign: TextAlign.start,
                         fontWeight: FontWeight.w500,
                       ),
                       subtitle: AppTextWidget(
-                        text: user.message.toString(), // Display user message
+                        text: user.message.toString(),
                         fontSize: 10,
                         textAlign: TextAlign.start,
                         fontWeight: FontWeight.w300,
@@ -143,7 +147,7 @@ class ChatListScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           const AppTextWidget(
-                            text: '01:23 PM', // Placeholder for time
+                            text: '01:23 PM',
                             fontSize: 10,
                             textAlign: TextAlign.start,
                           ),
@@ -157,7 +161,7 @@ class ChatListScreen extends StatelessWidget {
                             ),
                             child: const Center(
                               child: AppTextWidget(
-                                text: '3', // Placeholder for unread message count
+                                text: '3',
                                 color: Colors.white,
                               ),
                             ),
