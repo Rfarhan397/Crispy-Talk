@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
               ),
               debugShowCheckedModeBanner: false,
                 title: 'Crispy Talk',
-                initialRoute: RoutesName.mainScreen,
+                initialRoute: RoutesName.splashScreen,
               getPages: Routes.routes,
             );
           }

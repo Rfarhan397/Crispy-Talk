@@ -19,6 +19,10 @@ class RoutesName{
   static const chatScreen = "/chatScreen";
   static const createGroup = "/createGroup";
   static const editGroup = "/editGroup";
+  static const editProfile = "/editProfile";
+  static const uploadContentScreen = "/uploadContentScreen";
+  static const followerScreen = "/followersScreen";
+  static const followingScreen = "/followingScreen";
 
 
 }

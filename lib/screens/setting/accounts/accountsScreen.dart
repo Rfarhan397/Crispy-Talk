@@ -35,6 +35,9 @@ class AccountScreen extends StatelessWidget {
                     context: context,
                     builder: (BuildContext context){
                       return const CustomDialog(
+                        showtitle: true,
+                        showTextField: false,
+                        title: 'Log Out?',
                         content:  'Are you sure you want to Log Out?',
                         cancel: "Cancel",
                         yes: "Sure",
@@ -53,6 +56,9 @@ class AccountScreen extends StatelessWidget {
                     context: context,
                     builder: (BuildContext context){
                       return const CustomDialog(
+                        showtitle: true,
+                        showTextField: false,
+                        title: 'Delete?',
                         content:  'Are you sure you want to Delete this Account?',
                         cancel: "Cancel",
                         yes: "Sure",
