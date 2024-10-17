@@ -58,7 +58,6 @@ class UserProfile extends StatelessWidget {
                         yes: "Submit",
                         showTextField: true,
                         hintText: 'Write the Description',
-                        showtitle: true,
                       );
                     });
               }

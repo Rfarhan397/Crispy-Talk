@@ -28,6 +28,7 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+          automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
         shadowColor: Colors.transparent,
         surfaceTintColor: Colors.transparent,
