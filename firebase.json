@@ -1,0 +1,1 @@
+{"flutter":{"platforms":{"android":{"default":{"projectId":"crispy-talk","appId":"1:150763163368:android:184c7913a5a97aef7a035d","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"crispy-talk","configurations":{"android":"1:150763163368:android:184c7913a5a97aef7a035d","ios":"1:150763163368:ios:1ed67fe6ff1486727a035d"}}}}}}

@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 
@@ -9,6 +11,19 @@ const lightGrey = Color(0xFFE2E8F0);
 const darkGrey = Color(0x89534F5D);
 const lightBlue = Colors.lightBlue;
 const Color customGrey = Color(0xFFE0E0E0);
+
+
+
+
+
+////firebase///////
+
+FirebaseFirestore fireStore = FirebaseFirestore.instance;
+FirebaseAuth auth = FirebaseAuth.instance;
+
+
+
+
 
 
 LinearGradient gradientColor = const LinearGradient(colors: [

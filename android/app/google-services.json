@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "150763163368",
+    "project_id": "crispy-talk",
+    "storage_bucket": "crispy-talk.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:150763163368:android:184c7913a5a97aef7a035d",
+        "android_client_info": {
+          "package_name": "com.example.crispytalk"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsz18JMLVy9XUziWjQb7NpElRtS9qMXFs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

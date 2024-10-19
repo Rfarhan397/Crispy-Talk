@@ -15,119 +15,186 @@ import '../../model/res/widgets/app_text_field.dart';
 import '../../provider/passwpordVisibility/passwordVisibilityProvider.dart';
 
 class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({super.key});
+  SignUpScreen({super.key});
+
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController cPassController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    final password = Provider.of<PasswordVisibilityProvider>(context,listen: true);
+    final password = Provider.of<PasswordVisibilityProvider>(context, listen: true);
 
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          surfaceTintColor: Colors.white,
-          shadowColor: Colors.transparent,
-          leading: const AppBackButton()
+        backgroundColor: Colors.transparent,
+        surfaceTintColor: Colors.white,
+        shadowColor: Colors.transparent,
+        leading: const AppBackButton(),
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding:  EdgeInsets.symmetric(horizontal: 4.w),
-          child:  Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(height: 8.h,),
-              const AppTextWidget(
-                text: 'Sign Up',
-                color: primaryColor,
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-              ),
-              SizedBox(height: 3.h,),
-               AppTextField(
-                hintText: 'Full Name',
-                borderSides: false,
-                prefixIcon: Padding(
-                  padding: const EdgeInsets.all(14.0),
-                  child: SvgPicture.asset(AppAssets.person,),
+          padding: EdgeInsets.symmetric(horizontal: 4.w),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: 8.h),
+                const AppTextWidget(
+                  text: 'Sign Up',
+                  color: primaryColor,
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
                 ),
-              ),
-              SizedBox(height: 3.h,),
-               AppTextField(
-                hintText: 'Email',
-                borderSides: false,
-                prefixIcon: Padding(
-                  padding: const EdgeInsets.all(14.0),
-                  child: SvgPicture.asset(AppAssets.email,),
-                ),
-              ),
-              SizedBox(height: 3.h,),
-               AppTextField(
-                 obscureText: password.isObscure,
-                hintText: 'Password',
-                borderSides: false,
-                prefixIcon: Padding(
-                  padding: const EdgeInsets.all(14.0),
-                  child: SvgPicture.asset(AppAssets.password,),
-                ),
-                 suffixIcon:  GestureDetector(
-                   onTap: () {
-                     password.toggleVisibility();
-
-                   },
-                   child: Padding(
-                     padding: const EdgeInsets.all(18.0),
-                     child: password.isObscure?
-                     SvgPicture.asset(AppAssets.eye):
-                     SvgPicture.asset(AppAssets.eyeOff),
-                   ),
-                 ),),
-
-              SizedBox(height: 3.h,),
-              AppTextField(
-                obscureText: password.isObscure,
-                hintText: 'Confirm Password',
-                borderSides: false,
-                prefixIcon: Padding(
-                  padding: const EdgeInsets.all(14.0),
-                  child: SvgPicture.asset(AppAssets.password,),
-                ),
-                suffixIcon:  GestureDetector(
-                  onTap: () {
-                    password.toggleVisibility();
-
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(18.0),
-                    child: password.isObscure?
-                    SvgPicture.asset(AppAssets.eye):
-                    SvgPicture.asset(AppAssets.eyeOff),
+                SizedBox(height: 3.h),
+                AppTextField(
+                  controller: nameController,
+                  hintText: 'Full Name',
+                  borderSides: false,
+                  prefixIcon: Padding(
+                    padding: const EdgeInsets.all(14.0),
+                    child: SvgPicture.asset(AppAssets.person),
                   ),
-                ),),
-
-              SizedBox(height: 5.h,),
-              AppButtonWidget(
+                  // Add validation for name field
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter your full name';
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(height: 3.h),
+                AppTextField(
+                  controller: emailController,
+                  hintText: 'Email',
+                  borderSides: false,
+                  prefixIcon: Padding(
+                    padding: const EdgeInsets.all(14.0),
+                    child: SvgPicture.asset(AppAssets.email),
+                  ),
+                  // Add validation for email field
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter your email';
+                    } else if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
+                      return 'Please enter a valid email address';
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(height: 3.h),
+                AppTextField(
+                  controller: passwordController,
+                  obscureText: password.isObscure,
+                  hintText: 'Password',
+                  borderSides: false,
+                  prefixIcon: Padding(
+                    padding: const EdgeInsets.all(14.0),
+                    child: SvgPicture.asset(AppAssets.password),
+                  ),
+                  suffixIcon: GestureDetector(
+                    onTap: () {
+                      password.toggleVisibility();
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(18.0),
+                      child: password.isObscure
+                          ? SvgPicture.asset(AppAssets.eye)
+                          : SvgPicture.asset(AppAssets.eyeOff),
+                    ),
+                  ),
+                  // Add validation for password field
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter your password';
+                    } else if (value.length < 6) {
+                      return 'Password must be at least 6 characters';
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(height: 3.h),
+                AppTextField(
+                  controller: cPassController,
+                  obscureText: password.isObscure,
+                  hintText: 'Confirm Password',
+                  borderSides: false,
+                  prefixIcon: Padding(
+                    padding: const EdgeInsets.all(14.0),
+                    child: SvgPicture.asset(AppAssets.password),
+                  ),
+                  suffixIcon: GestureDetector(
+                    onTap: () {
+                      password.toggleVisibility();
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(18.0),
+                      child: password.isObscure
+                          ? SvgPicture.asset(AppAssets.eye)
+                          : SvgPicture.asset(AppAssets.eyeOff),
+                    ),
+                  ),
+                  // Add validation for confirm password field
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please confirm your password';
+                    } else if (value != passwordController.text) {
+                      return 'Passwords do not match';
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(height: 5.h),
+                AppButtonWidget(
                   alignment: Alignment.center,
-                  onPressed: () {},
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      signUp();
+                    }
+                  },
                   radius: 8,
                   width: 60.w,
                   fontWeight: FontWeight.w700,
-                  text: 'Sign Up'),
-              SizedBox(height: 5.h,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  AppTextWidget(text: 'Already have an account?',fontSize: 16,fontWeight: FontWeight.w500,),
-                  GestureDetector(
+                  text: 'Sign Up',
+                ),
+                SizedBox(height: 5.h),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    AppTextWidget(
+                      text: 'Already have an account?',
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    GestureDetector(
                       onTap: () {
                         Get.toNamed(RoutesName.loginScreen);
                       },
-                      child: AppTextWidget(text: ' Login',color: primaryColor,fontSize: 16,)),
-                ],
-              )
-            ],
+                      child: AppTextWidget(
+                        text: ' Login',
+                        color: primaryColor,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
+  void signUp() {
+    auth.createUserWithEmailAndPassword(
+        email: emailController.text.toString(),
+        password: passwordController.text.toString()
+    );
+  }
 }
+
+
