@@ -70,6 +70,7 @@ class AccountScreen extends StatelessWidget {
                     yes: "Sure",
                     showTextField: true,
                     showTitle: true,
+                  hintText: 'Write your reason here...'
                 );
                 // showDialog(
                 //     context: context,

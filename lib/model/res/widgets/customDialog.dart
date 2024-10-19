@@ -40,22 +40,16 @@ class CustomDialog extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 if (showTitle)
-                  Container(
-                    height: 50.0,
-                    child: AppTextWidget(
-                      text: title ?? '',
-                      color: primaryColor,
-                      fontSize: 18,
-                    ),
+                  AppTextWidget(
+                    text: title ?? '',
+                    color: primaryColor,
+                    fontSize: 18,
                   ),
                 SizedBox(height: 1.h),
-                Container(
-                  height: 50.0,
-                  child: AppTextWidget(
-                    text: content ?? '',
-                    color: Colors.black,
-                    fontSize: 15,
-                  ),
+                AppTextWidget(
+                  text: content ?? '',
+                  color: Colors.black,
+                  fontSize: 15,
                 ),
                 if (showTextField)
                   Padding(
@@ -66,6 +60,7 @@ class CustomDialog extends StatelessWidget {
                       controller: textController, // Use the controller if provided
                     ),
                   ),
+                SizedBox(height: 1.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [

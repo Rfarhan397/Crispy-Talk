@@ -187,6 +187,19 @@ class ActionProvider extends ChangeNotifier{
     _isLike = !_isLike;
     notifyListeners(); // Notify listeners to rebuild widgets
   }
+//////////////who can see this post/////////
 
+  String _selectedOption = 'Everyone';  // Default selection
+
+  String get selectedOption => _selectedOption;
+
+  void selectOption(String option) {
+    _selectedOption = option;
+    notifyListeners();
+  }
+
+  bool isSelected(String option) {
+    return _selectedOption == option;
+  }
 
 }

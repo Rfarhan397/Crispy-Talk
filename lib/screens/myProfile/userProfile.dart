@@ -33,6 +33,8 @@ class UserProfile extends StatelessWidget {
         ),
         actions: [
           PopupMenuButton<String>(
+            surfaceTintColor: primaryColor,
+            color: primaryColor,
             icon: SvgPicture.asset(AppIcons.menu),
             onSelected: (value) {
               if (value == 'Block') {
@@ -66,11 +68,11 @@ class UserProfile extends StatelessWidget {
               return <PopupMenuEntry<String>>[
                 const PopupMenuItem<String>(
                   value: 'Block',
-                  child: Text('Block', style: TextStyle(color: Colors.black)),
+                  child: Text('Block', style: TextStyle(color: Colors.white)),
                 ),
                 const PopupMenuItem<String>(
                   value: 'Report',
-                  child: Text('Report', style: TextStyle(color: Colors.black)),
+                  child: Text('Report', style: TextStyle(color: Colors.white)),
                 ),
               ];
             },
@@ -183,7 +185,6 @@ class UserProfile extends StatelessWidget {
                             ),
                           ),
                           buildFollow("456k", "Likes",() {
-                            Get.toNamed(RoutesName.followingScreen);
                           },),
                         ],
                       ),

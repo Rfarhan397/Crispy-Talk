@@ -6,17 +6,18 @@ import 'package:crispytalk/model/res/widgets/app_text.dart.dart';
 import 'package:crispytalk/model/res/widgets/app_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../model/res/constant/app_assets.dart';
-import '../../model/res/widgets/toast_widget.dart';
 
 class EditProfile extends StatelessWidget {
-  EditProfile({super.key});
+   const EditProfile({super.key});
 
-  Color greyColor = const Color(0xffD9D9D9);
   @override
   Widget build(BuildContext context) {
+    Color greyColor = const Color(0xffD9D9D9);
+
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -129,7 +130,9 @@ class EditProfile extends StatelessWidget {
                 width: 25.w,
                 height: 5.h,
                 alignment: Alignment.centerRight,
-                  onPressed: () {},
+                  onPressed: () {
+                  Get.back();
+                  },
                   text: 'Save'),
             )
           ],

@@ -23,6 +23,7 @@ class RoutesName{
   static const uploadContentScreen = "/uploadContentScreen";
   static const followerScreen = "/followersScreen";
   static const followingScreen = "/followingScreen";
+  static const uploadMedia = "/uploadMedia";
 
 
 }

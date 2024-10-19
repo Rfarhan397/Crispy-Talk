@@ -28,5 +28,7 @@ class AppIcons{
   static const link  = "assets/icons/link.svg";
   static const editProfile  = "assets/icons/editProfile.svg";
   static const shareProfile  = "assets/icons/shareProfile.svg";
+  static const group  = "assets/icons/group.svg";
+  static const createGroup  = "assets/icons/createGroup.svg";
 
 }

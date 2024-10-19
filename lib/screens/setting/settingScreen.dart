@@ -60,7 +60,7 @@ class SettingsScreen extends StatelessWidget {
               image: AppIcons.profile,
               title: 'Profile Setting',
               onTap: () {
-                Get.toNamed(RoutesName.accountScreen);
+                Get.toNamed(RoutesName.editProfile);
 
                 // Add navigation or action here
               },

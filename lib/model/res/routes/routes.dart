@@ -1,5 +1,6 @@
 
 import 'package:crispytalk/model/res/routes/routes_name.dart';
+import 'package:crispytalk/provider/mediaSelection/uploadMedia.dart';
 import 'package:crispytalk/screens/chat/createGroup/createGroup.dart';
 import 'package:crispytalk/screens/follow/followersScreen.dart';
 import 'package:crispytalk/screens/follow/followingScreen.dart';
@@ -12,6 +13,7 @@ import 'package:crispytalk/screens/setting/termsCondition/termAndConditions.dart
 
 import 'package:get/get.dart';
 
+import '../../../screens/MediaSelection/MediaSelectionScreen.dart';
 import '../../../screens/chat/EditGroup/EditGroupScreen.dart';
 import '../../../screens/chat/chatListScreen.dart';
 import '../../../screens/chat/chatScreen.dart';
@@ -25,7 +27,6 @@ import '../../../screens/setting/notificationSetting/notificationSettingScreen.d
 import '../../../screens/setting/settingScreen.dart';
 import '../../../screens/splash/splashScreen.dart';
 import '../../../screens/myProfile/userProfile.dart';
-import '../../../screens/uploadContent/uploadContentScreen.dart';
 import '../../../screens/video/videoScreen.dart';
 
 
@@ -52,9 +53,10 @@ class Routes {
     GetPage(name: RoutesName.createGroup, page: () => CreateGroup()),
     GetPage(name: RoutesName.editGroup, page: () => EditGroupScreen()),
     GetPage(name: RoutesName.editProfile, page: () => EditProfile()),
-    GetPage(name: RoutesName.uploadContentScreen, page: () => UploadContentScreen()),
+    GetPage(name: RoutesName.uploadContentScreen, page: () => MediaSelectionScreenWrapper()),
     GetPage(name: RoutesName.followerScreen, page: () => FollowersScreen()),
     GetPage(name: RoutesName.followingScreen, page: () => FollowingScreen()),
+    GetPage(name: RoutesName.uploadMedia, page: () => UploadMediaScreen()),
 
   ];
 }

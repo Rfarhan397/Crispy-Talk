@@ -3,6 +3,7 @@ import 'package:crispytalk/model/res/constant/app_assets.dart';
 import 'package:crispytalk/model/res/routes/routes_name.dart';
 import 'package:crispytalk/screens/chat/chatListScreen.dart';
 import 'package:crispytalk/screens/mainScreen/homeScreen.dart';
+import 'package:crispytalk/screens/video/videoScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -26,7 +27,7 @@ class MainScreen extends StatelessWidget {
             index: value.currentIndex,
             children: [
              const HomeScreen(),
-             const HomeScreen(),
+             const VideoScreen(),
              ChatListScreen(),
               UserProfile(),
             ],

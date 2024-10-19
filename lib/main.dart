@@ -2,6 +2,7 @@ import 'package:crispytalk/model/res/routes/routes.dart';
 import 'package:crispytalk/model/res/routes/routes_name.dart';
 import 'package:crispytalk/provider/action/action_provider.dart';
 import 'package:crispytalk/provider/bottomNavBar/bottomNavBarProvider.dart';
+import 'package:crispytalk/provider/mediaSelection/mediaSelectionProvider.dart';
 import 'package:crispytalk/provider/notification/notificationProvider.dart';
 import 'package:crispytalk/provider/passwpordVisibility/passwordVisibilityProvider.dart';
 import 'package:crispytalk/provider/theme/theme_provider.dart';
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => ActionProvider()),
         ChangeNotifierProvider(create: (_) => UserProvider()),
         ChangeNotifierProvider(create: (_) => NotificationProvider()),
+        ChangeNotifierProvider(create: (_) => MediaSelectionProvider()),
       ],
       child: Sizer(
           builder: (context, orientation, deviceType) {

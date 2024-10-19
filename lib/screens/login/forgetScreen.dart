@@ -26,7 +26,7 @@ class ForgetScreen extends StatelessWidget {
         leading: const AppBackButton(),
       ),
       body: Padding(
-        padding:  EdgeInsets.symmetric(horizontal: 4.w),
+        padding:  EdgeInsets.symmetric(horizontal: 6.w),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

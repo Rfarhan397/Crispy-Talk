@@ -29,68 +29,78 @@ class ChatListScreen extends StatelessWidget {
           child: Column(
             children: [
               // Search Bar
-              Row(
-                children: [
-                  Container(
-                    height: 50,
-                    width: 85.w,
-                    decoration: const BoxDecoration(
-                        color: Color(0xffD9D9D9),
-                        borderRadius: BorderRadius.only(
-                            bottomRight: Radius.circular(18),
-                            topRight: Radius.circular(18)
-                        )
-                    ),
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 12.0),
-                          child: SvgPicture.asset(AppIcons.search),
-                        ),
-                        Expanded(
-                          child: AppTextField(
-                            focusBdColor: Colors.transparent,
-                            controller: _searchController,
-                            onChanged: (value) {
-                              provider.searchUsers(value); // Trigger search
-                            },
-                            hintText: "Search",
+              Padding(
+                padding:  EdgeInsets.only(top: 2.h),
+                child: Row(
+                  children: [
+                    Container(
+                      height: 50,
+                      width: 85.w,
+                      decoration: const BoxDecoration(
+                          color: Color(0xffD9D9D9),
+                          borderRadius: BorderRadius.only(
+                              bottomRight: Radius.circular(18),
+                              topRight: Radius.circular(18)
+                          )
+                      ),
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 12.0),
+                            child: SvgPicture.asset(AppIcons.search),
                           ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 8.0),
-                          child: GestureDetector(
-                            onTap: () {
-                              _searchController.clear();
-                              provider.searchUsers(''); // Reset search when clear is clicked
-                            },
-                            child: SvgPicture.asset(AppIcons.close),
+                          Expanded(
+                            child: AppTextField(
+                              focusBdColor: Colors.transparent,
+                              controller: _searchController,
+                              onChanged: (value) {
+                                provider.searchUsers(value); // Trigger search
+                              },
+                              hintText: "Search",
+                            ),
                           ),
-                        )
-                      ],
+                          Padding(
+                            padding: const EdgeInsets.only(right: 8.0),
+                            child: GestureDetector(
+                              onTap: () {
+                                _searchController.clear();
+                                provider.searchUsers(''); // Reset search when clear is clicked
+                              },
+                              child: SvgPicture.asset(AppIcons.close),
+                            ),
+                          )
+                        ],
+                      ),
                     ),
-                  ),
-                  PopupMenuButton<String>(
-                    color: primaryColor,
-                    icon: SvgPicture.asset(AppIcons.menu),
-                    onSelected: (value) {
-                      menuProvider.setSelectedItem(value);
-                      // Handle actions for the menu
-                      if (value == 'Create new Group') {
-                        Get.toNamed(RoutesName.createGroup);
-                        log('Create new Group selected');
-                      } else if (value == 'Old Groups') {
-                        log('Old Groups selected');
-                      }
-                    },
-                    itemBuilder: (BuildContext context) {
-                      return [
-                        buildMenuItem(context, 'Create new Group', menuProvider),
-                        buildMenuItem(context, 'Old Groups', menuProvider),
-                      ];
-                    },
-                  ),
-                ],
+                    Padding(
+                      padding:  EdgeInsets.symmetric(horizontal: 2.w),
+                      child: GestureDetector(
+                          onTap: () {Get.toNamed(RoutesName.createGroup);
+                          },
+                          child: SvgPicture.asset(AppIcons.createGroup)),
+                    )
+                    // PopupMenuButton<String>(
+                    //   color: primaryColor,
+                    //   icon: SvgPicture.asset(AppIcons.menu),
+                    //   onSelected: (value) {
+                    //     menuProvider.setSelectedItem(value);
+                    //     // Handle actions for the menu
+                    //     if (value == 'Create new Group') {
+                    //       Get.toNamed(RoutesName.createGroup);
+                    //       log('Create new Group selected');
+                    //     } else if (value == 'Old Groups') {
+                    //       log('Old Groups selected');
+                    //     }
+                    //   },
+                    //   itemBuilder: (BuildContext context) {
+                    //     return [
+                    //       buildMenuItem(context, 'Create new Group', menuProvider),
+                    //       buildMenuItem(context, 'Old Groups', menuProvider),
+                    //     ];
+                    //   },
+                    // ),
+                  ],
+                ),
               ),
               SizedBox(height: 2.h),
 

@@ -5,6 +5,8 @@ import 'package:crispytalk/model/res/constant/app_colors.dart';
 import 'package:crispytalk/model/res/widgets/app_text.dart.dart';
 import 'package:crispytalk/model/res/widgets/backButton.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 import '../../provider/notification/notificationProvider.dart';
@@ -28,11 +30,34 @@ class NotificationScreen extends StatelessWidget {
               children: [
                 // Custom AppBar
 
-                const Padding(
+                 Padding(
                   padding: EdgeInsets.all(16.0),
                   child: Row(
                     children: [
-                      AppBackButton(color: Colors.white,buttonColor: primaryColor,),
+                      GestureDetector(
+                        onTap: () {
+                          Get.back();
+                        },
+                        child: Container(
+                          height: 25,
+                          width: 25,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(100),
+                            color: Colors.white
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+
+                                top: 2.0,
+                              left: 8,
+                            ),
+                            child: Icon(
+                              Icons.arrow_back_ios,
+                              color: primaryColor,size: 15,),
+                          ),
+                        ),
+                      ),
+                      // AppBackButton(color: Colors.white,buttonColor: primaryColor,),
                       SizedBox(width: 16),
                       AppTextWidget(text:
                         "Notification",
@@ -57,36 +82,6 @@ class NotificationScreen extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          // ToggleButtons(
-                          //   borderRadius: BorderRadius.circular(30),
-                          //   fillColor: primaryColor,
-                          //   selectedColor: Colors.white,
-                          //   color: Colors.white,
-                          //   selectedBorderColor: Colors.white,
-                          //   isSelected: [
-                          //     notificationProvider.selectedIndex == 0,
-                          //     notificationProvider.selectedIndex == 1
-                          //   ],
-                          //   onPressed: (int newIndex) {
-                          //     notificationProvider.updateIndex(newIndex);
-                          //   },
-                          //   children: const [
-                          //     Padding(
-                          //       padding: EdgeInsets.symmetric(horizontal: 24),
-                          //       child: Text(
-                          //         'Today',
-                          //         style: TextStyle(fontSize: 16),
-                          //       ),
-                          //     ),
-                          //     Padding(
-                          //       padding: EdgeInsets.symmetric(horizontal: 24),
-                          //       child: Text(
-                          //         'Last Week',
-                          //         style: TextStyle(fontSize: 16),
-                          //       ),
-                          //     ),
-                          //   ],
-                          // ),
                           GestureDetector(
                             onTap: () {
                               notificationProvider.updateIndex(0);
@@ -158,7 +153,7 @@ class NotificationScreen extends StatelessWidget {
                     );
                   },
                 ),
-                const SizedBox(height: 20),
+                 SizedBox(height: 5.h),
 
                 // Notification List
                 Expanded(

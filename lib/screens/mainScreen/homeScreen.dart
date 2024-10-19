@@ -106,6 +106,9 @@ class HomeScreen extends StatelessWidget {
                         AppAssets.lady,
                         AppAssets.boy,
                         'Samia Ali',
+                        () {
+                          Get.toNamed(RoutesName.video);
+                        },
                       ),
                     );
                   },
@@ -156,7 +159,7 @@ class HomeScreen extends StatelessWidget {
                       padding: EdgeInsets.only(right: 3.w),
                       child: buildPostContainer(AppAssets.boy, 'Cusinolgy',
                           'Enjoy with friends on holiday', () {
-                        Get.to(VideoScreen());
+                        Get.toNamed(RoutesName.video);
                         // Get.toNamed(RoutesName.video);
                       }, AppAssets.lady, '4.1K', '206'));
                 },
@@ -213,59 +216,64 @@ class HomeScreen extends StatelessWidget {
     String profileImage,
     String storyImage,
     String userName,
+      VoidCallback onTap,
   ) {
-    return Container(
-      width: 36.w,
-      height: 25.h,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(30),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.3),
-            blurRadius: 10,
-            spreadRadius: 2,
-            offset: const Offset(0, 5),
-          ),
-        ],
-      ),
-      child: Stack(
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: Image.asset(
-              profileImage,
-              fit: BoxFit.cover,
-              width: double.infinity,
-              height: double.infinity,
-            ),
-          ),
+    return GestureDetector(
+     onTap: onTap,
 
-          // Foreground content on top of the image
-          Padding(
-            padding: EdgeInsets.all(2.w),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // Profile picture and name
-                Row(
-                  children: [
-                    CircleAvatar(
-                      radius: 20,
-                      backgroundImage: AssetImage(storyImage),
-                    ),
-                    SizedBox(width: 2.w),
-                    AppTextWidget(
-                      text: userName,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 14,
-                      color: Colors.white,
-                    ),
-                  ],
-                ),
-              ],
+      child: Container(
+        width: 36.w,
+        height: 25.h,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.3),
+              blurRadius: 10,
+              spreadRadius: 2,
+              offset: const Offset(0, 5),
             ),
-          ),
-        ],
+          ],
+        ),
+        child: Stack(
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Image.asset(
+                profileImage,
+                fit: BoxFit.cover,
+                width: double.infinity,
+                height: double.infinity,
+              ),
+            ),
+
+            // Foreground content on top of the image
+            Padding(
+              padding: EdgeInsets.all(2.w),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Profile picture and name
+                  Row(
+                    children: [
+                      CircleAvatar(
+                        radius: 20,
+                        backgroundImage: AssetImage(storyImage),
+                      ),
+                      SizedBox(width: 2.w),
+                      AppTextWidget(
+                        text: userName,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                        color: Colors.white,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -470,7 +478,7 @@ class CustomSearchDelegate extends SearchDelegate {
             query = "";
           },
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 2.w),
+            padding: EdgeInsets.only(right: 4.w),
             child: SvgPicture.asset(AppIcons.close),
           )),
     ];

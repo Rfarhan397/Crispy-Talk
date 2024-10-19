@@ -55,7 +55,7 @@ class CreateGroup extends StatelessWidget {
                 children: [
                   Container(
                     height: 50,
-                    width: 85.w,
+                    width: 95.w,
                     decoration: const BoxDecoration(
                         color: Color(0xffD9D9D9),
                         borderRadius: BorderRadius.only(
@@ -92,26 +92,26 @@ class CreateGroup extends StatelessWidget {
                       ],
                     ),
                   ),
-                  PopupMenuButton<String>(
-                    color: primaryColor,
-                    icon: SvgPicture.asset(AppIcons.menu),
-                    onSelected: (value) {
-                      menuProvider.setSelectedItem(value);
-                      // Handle actions for the menu
-                      if (value == 'Create new Group') {
-                        Get.toNamed(RoutesName.createGroup);
-                        log('Create new Group selected');
-                      } else if (value == 'Old Groups') {
-                        log('Old Groups selected');
-                      }
-                    },
-                    itemBuilder: (BuildContext context) {
-                      return [
-                        buildMenuItem(context, 'Create new Group', menuProvider),
-                        buildMenuItem(context, 'Old Groups', menuProvider),
-                      ];
-                    },
-                  ),
+                  // PopupMenuButton<String>(
+                  //   color: primaryColor,
+                  //   icon: SvgPicture.asset(AppIcons.menu),
+                  //   onSelected: (value) {
+                  //     menuProvider.setSelectedItem(value);
+                  //     // Handle actions for the menu
+                  //     if (value == 'Create new Group') {
+                  //       Get.toNamed(RoutesName.createGroup);
+                  //       log('Create new Group selected');
+                  //     } else if (value == 'Old Groups') {
+                  //       log('Old Groups selected');
+                  //     }
+                  //   },
+                  //   itemBuilder: (BuildContext context) {
+                  //     return [
+                  //       buildMenuItem(context, 'Create new Group', menuProvider),
+                  //       buildMenuItem(context, 'Old Groups', menuProvider),
+                  //     ];
+                  //   },
+                  // ),
                 ],
               ),
               SizedBox(height: 2.h),
