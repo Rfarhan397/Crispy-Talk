@@ -20,6 +20,8 @@ const Color customGrey = Color(0xFFE0E0E0);
 
 FirebaseFirestore fireStore = FirebaseFirestore.instance;
 FirebaseAuth auth = FirebaseAuth.instance;
+String timestampId = Timestamp.now().millisecondsSinceEpoch.toString();
+
 
 
 

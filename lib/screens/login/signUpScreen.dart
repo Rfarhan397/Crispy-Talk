@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -189,12 +191,44 @@ class SignUpScreen extends StatelessWidget {
       ),
     );
   }
-  void signUp() {
-    auth.createUserWithEmailAndPassword(
+  void signUp() async {
+
+    try {
+      UserCredential userCredential = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(
         email: emailController.text.toString(),
-        password: passwordController.text.toString()
-    );
+        password: passwordController.text.toString(),
+      );
+
+      // Save user data to Firestore
+      await fireStore
+          .collection('users')
+          .doc(userCredential.user!.uid)
+          .set({
+        'name': nameController.text.trim(),
+        'email': emailController.text.trim(),
+        'password': passwordController.text.trim(),
+        'id' : timestampId,
+        'userUid': FirebaseAuth.instance.currentUser!.uid,
+        'createdAt': Timestamp.now(),
+      });
+
+      // Notify the user of successful sign-up
+      Get.snackbar(backgroundColor: primaryColor,'Success', 'Sign Up Completed Successfully');
+
+    } on FirebaseAuthException catch (e) {
+      // Handle errors (e.g., email already in use, weak password)
+      if (e.code == 'email-already-in-use') {
+        Get.snackbar('Error', 'The email is already in use.');
+      } else if (e.code == 'weak-password') {
+        Get.snackbar('Error', 'The password is too weak.');
+      }
+    } catch (e) {
+      // Handle general errors
+      Get.snackbar('Error', 'An error occurred during sign up.');
+    }
   }
+
 }
 
 

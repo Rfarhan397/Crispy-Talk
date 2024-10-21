@@ -84,6 +84,7 @@ class ForgetScreen extends StatelessWidget {
             AppButtonWidget(
                 alignment: Alignment.center,
                 onPressed: () {
+                  _sendPasswordResetEmail();
                   Get.toNamed(RoutesName.code);
                 },
                 radius: 8,
@@ -96,4 +97,6 @@ class ForgetScreen extends StatelessWidget {
       ),
     );
   }
+
+  void _sendPasswordResetEmail() {}
 }

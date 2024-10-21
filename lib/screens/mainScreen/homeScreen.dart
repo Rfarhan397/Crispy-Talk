@@ -70,6 +70,8 @@ class HomeScreen extends StatelessWidget {
                   log('Notification selected');
                   Get.toNamed(RoutesName.notificationScreen);
                 } else if (value == 'Log Out') {
+                  Get.toNamed(RoutesName.loginScreen);
+
                   log('Log Out selected');
                   // onTap here
                 }
